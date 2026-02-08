@@ -11,7 +11,7 @@ function LoginPage() {
   useEffect(() => {
     // Redirect if already logged in
     if (localStorage.getItem('access_token')) {
-      window.location.href = '/docs/chapter1';
+      window.location.href = '/docs/intro';
     }
   }, []);
 
@@ -42,7 +42,7 @@ function LoginPage() {
         window.dispatchEvent(new Event('auth-change'));
         setMessage('Login successful! Redirecting...');
         setTimeout(() => {
-          window.location.href = '/docs/chapter1';
+          window.location.href = '/docs/intro';
         }, 1000);
       } else {
         setMessage(data.detail || 'Login failed.');
