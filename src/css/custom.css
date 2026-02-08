@@ -78,6 +78,20 @@ body.is-logged-in [class*="navbar-logout"] {
   box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
 }
 
+.signup-card {
+  max-width: 500px;
+}
+
+@media (max-width: 576px) {
+  .auth-card, .signup-card {
+    padding: 2rem 1.5rem;
+  }
+  
+  .auth-title {
+    font-size: 1.75rem;
+  }
+}
+
 .auth-title {
   font-size: 2.25rem;
   font-weight: 800;
@@ -269,15 +283,127 @@ body.is-logged-in [class*="navbar-logout"] {
 }
 
 .navbar {
+  background: transparent !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  border-bottom: 1px solid transparent;
+  padding: 0.75rem 1.5rem;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  align-items: center;
+}
+
+.navbar::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  background: rgba(var(--ifm-navbar-background-color-rgb), 0.75);
+  background: rgba(var(--ifm-navbar-background-color-rgb), 0.7);
+  z-index: -1;
+  transition: all 0.4s ease;
+  pointer-events: none;
+}
+
+/* Scroll Animation Styles */
+body.navbar-scrolled .navbar {
+  padding: 0.5rem 1.5rem;
   border-bottom: 1px solid var(--glass-border);
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  padding: 0.5rem 1.5rem; /* Reduced and balanced padding */
-  transition: all 0.3s ease;
-  display: flex;
-  align-items: center; /* Ensure vertical centering */
+}
+
+body.navbar-scrolled .navbar::before {
+  background: rgba(var(--ifm-navbar-background-color-rgb), 0.85);
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 996px) {
+  .navbar {
+    padding: 0.5rem 1rem;
+  }
+
+  /* Force Login/Signup to stay visible in navbar on mobile */
+  .navbar__item.navbar-signup,
+  .navbar__item.navbar-login {
+    display: inline-flex !important;
+    margin: 0 0.25rem;
+  }
+
+  .navbar-signup {
+    padding: 0.35rem 0.8rem !important;
+    font-size: 0.85rem;
+  }
+
+  /* Adjust brand for mobile to make room */
+  .navbar__brand {
+    margin-right: 0.5rem;
+    font-size: 1rem;
+  }
+}
+
+/* Modern Hamburger Menu (Sidebar) */
+.navbar-sidebar {
+  background: var(--glass-bg) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+  border-right: 1px solid var(--glass-border);
+  box-shadow: 20px 0 50px rgba(0, 0, 0, 0.1);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  overflow-x: hidden !important;
+}
+
+.navbar-sidebar__brand {
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.05), transparent);
+  border-bottom: 1px solid var(--glass-border);
+  padding: 1rem 1.25rem !important;
+}
+
+.navbar-sidebar__items {
+  padding: 0.75rem !important;
+}
+
+.navbar-sidebar__item {
+  border-radius: 12px;
+  margin-bottom: 0.25rem;
+  transition: all 0.2s ease;
+}
+
+.navbar-sidebar__item:hover {
+  background: rgba(99, 102, 241, 0.1);
+}
+
+.navbar-sidebar__link {
+  font-weight: 600;
+  color: var(--ifm-font-color-base) !important;
+  padding: 0.5rem 0.75rem !important;
+}
+
+.navbar-sidebar__link--active {
+  background: var(--ifm-color-primary) !important;
+  color: white !important;
+}
+
+/* Hide Login/Signup from Sidebar as requested */
+.navbar-sidebar .navbar-signup,
+.navbar-sidebar .navbar-login,
+.navbar-sidebar .navbar-logout {
+  display: none !important;
+}
+
+/* Aesthetic Hamburger Toggle */
+.navbar__toggle {
+  color: var(--ifm-color-primary) !important;
+  transition: transform 0.3s ease !important;
+  padding: 0.5rem;
+  margin-right: 0.5rem;
+}
+
+.navbar__toggle:hover {
+  transform: rotate(90deg);
+  background: rgba(99, 102, 241, 0.1);
+  border-radius: 8px;
 }
 
 .navbar__brand {
@@ -285,6 +411,11 @@ body.is-logged-in [class*="navbar-logout"] {
   letter-spacing: -0.01em;
   font-size: 1.2rem;
   color: var(--ifm-color-primary) !important;
+  transition: transform 0.3s ease;
+}
+
+body.navbar-scrolled .navbar__brand {
+  transform: scale(0.95);
 }
 
 .navbar__item {
@@ -346,6 +477,18 @@ body.is-logged-in [class*="navbar-logout"] {
   display: flex;
   flex-direction: column;
   align-items: stretch;
+}
+
+@media (max-width: 768px) {
+  .footer__col {
+    align-items: center;
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+  
+  .footer__title, .footer__item {
+    text-align: center;
+  }
 }
 
 .footer__links {

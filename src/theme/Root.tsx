@@ -5,6 +5,18 @@ import Chatbot from '../components/Chatbot';
 // It's the perfect place for global logic.
 export default function Root({children}) {
   useEffect(() => {
+    // Scroll listener for navbar animations
+    const handleScroll = () => {
+      if (window.scrollY > 20) {
+        document.body.classList.add('navbar-scrolled');
+      } else {
+        document.body.classList.remove('navbar-scrolled');
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    handleScroll(); // Initial check
+
     // Brute force update function
     const updateAuthUI = () => {
       const token = localStorage.getItem('access_token');
@@ -26,14 +38,26 @@ export default function Root({children}) {
       // Apply styles to the elements or their parent <li>
       elements.signup.forEach(el => {
         const target = el.closest('li') || el;
+        if (el.closest('.navbar-sidebar')) {
+          (target as HTMLElement).style.setProperty('display', 'none', 'important');
+          return;
+        }
         (target as HTMLElement).style.setProperty('display', isLoggedIn ? 'none' : 'inline-flex', 'important');
       });
       elements.login.forEach(el => {
         const target = el.closest('li') || el;
+        if (el.closest('.navbar-sidebar')) {
+          (target as HTMLElement).style.setProperty('display', 'none', 'important');
+          return;
+        }
         (target as HTMLElement).style.setProperty('display', isLoggedIn ? 'none' : 'inline-flex', 'important');
       });
       elements.logout.forEach(el => {
         const target = el.closest('li') || el;
+        if (el.closest('.navbar-sidebar')) {
+          (target as HTMLElement).style.setProperty('display', 'none', 'important');
+          return;
+        }
         (target as HTMLElement).style.setProperty('display', isLoggedIn ? 'inline-flex' : 'none', 'important');
       });
     };
@@ -62,6 +86,7 @@ export default function Root({children}) {
 
     return () => {
       clearInterval(interval);
+      window.removeEventListener('scroll', handleScroll);
       window.removeEventListener('storage', updateAuthUI);
       window.removeEventListener('auth-change', updateAuthUI);
       document.removeEventListener('click', handleLogout);

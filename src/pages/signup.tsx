@@ -64,7 +64,7 @@ function SignupPage() {
         <div className="auth-blob blob-1"></div>
         <div className="auth-blob blob-2"></div>
 
-        <div className="glass-card auth-card" style={{ maxWidth: '500px' }}>
+        <div className="glass-card auth-card signup-card">
           <h1 className="auth-title">Create Account</h1>
           <p className="auth-subtitle">Join our community of AI physical explorers</p>
           

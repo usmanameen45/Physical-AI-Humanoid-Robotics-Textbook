@@ -12,6 +12,26 @@
   color: white;
 }
 
+@media (max-width: 768px) {
+  .heroBanner {
+    padding: 4rem 0;
+  }
+  
+  .hero__title {
+    font-size: 2.25rem;
+  }
+  
+  .hero__subtitle {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+  }
+  
+  .buttons {
+    flex-direction: column;
+    padding: 0 2rem;
+  }
+}
+
 [data-theme='dark'] .heroBanner {
   background: radial-gradient(circle at top left, #1e1b4b 0%, #0f172a 100%);
 }
@@ -79,6 +99,17 @@
   text-align: center;
 }
 
+@media (max-width: 768px) {
+  .sectionTitle {
+    font-size: 1.75rem;
+    margin-bottom: 2rem;
+  }
+  
+  .section {
+    padding: 3rem 0;
+  }
+}
+
 /* Feature grid customization */
 .featuresGrid {
   display: grid;
@@ -127,4 +158,43 @@
   height: 200%;
   background: radial-gradient(circle, rgba(99, 102, 241, 0.1) 0%, transparent 70%);
   pointer-events: none;
+}
+
+.chatbotFeatureTitle {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.chatbotFeatureDescription {
+  font-size: 1.2rem;
+  color: var(--ifm-color-emphasis-700);
+}
+
+.chatbotEmoji {
+  font-size: 8rem;
+  filter: drop-shadow(0 0 20px rgba(99, 102, 241, 0.4));
+}
+
+.audienceEmoji {
+  font-size: 4rem;
+}
+
+@media (max-width: 768px) {
+  .chatbotFeatureTitle {
+    font-size: 1.75rem;
+    text-align: center;
+  }
+  
+  .chatbotFeatureDescription {
+    font-size: 1rem;
+    text-align: center;
+  }
+
+  .chatbotEmoji {
+    font-size: 5rem;
+  }
+
+  .audienceEmoji {
+    font-size: 3rem;
+  }
 }

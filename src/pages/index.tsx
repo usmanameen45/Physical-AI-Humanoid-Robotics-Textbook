@@ -91,23 +91,23 @@ function AudienceSection() {
       <div className="container">
         <Heading as="h2" className={styles.sectionTitle}>Designed for Every Background</Heading>
         <div className="row">
-          <div className="col col--4">
+          <div className="col col--4 margin-bottom--lg">
             <div className="text--center padding--md">
-              <div style={{fontSize: '4rem'}}>💻</div>
+              <div className={styles.audienceEmoji}>💻</div>
               <h3>Software Engineers</h3>
               <p>Transition your coding skills into the physical world. Learn ROS2, control theory, and robot learning.</p>
             </div>
           </div>
-          <div className="col col--4">
+          <div className="col col--4 margin-bottom--lg">
             <div className="text--center padding--md">
-              <div style={{fontSize: '4rem'}}>⚙️</div>
+              <div className={styles.audienceEmoji}>⚙️</div>
               <h3>Hardware Enthusiasts</h3>
               <p>Bring your designs to life. Integrate sophisticated AI brains into your mechanical creations.</p>
             </div>
           </div>
-          <div className="col col--4">
+          <div className="col col--4 margin-bottom--lg">
             <div className="text--center padding--md">
-              <div style={{fontSize: '4rem'}}>🎓</div>
+              <div className={styles.audienceEmoji}>🎓</div>
               <h3>Students & Researchers</h3>
               <p>Access the latest research in Embodied AI and Humanoid Robotics in a structured, easy-to-digest format.</p>
             </div>
@@ -125,10 +125,10 @@ function ChatbotFeature() {
         <div className={clsx('row', styles.alignCenter)}>
           <div className="col col--6">
             <div className="padding--lg">
-              <Heading as="h2" style={{fontSize: '2.5rem', marginBottom: '1.5rem'}}>
+              <Heading as="h2" className={styles.chatbotFeatureTitle}>
                 Your Personal AI Tutor,<br />Available 24/7
               </Heading>
-              <p style={{fontSize: '1.2rem', color: 'var(--ifm-color-emphasis-700)'}}>
+              <p className={styles.chatbotFeatureDescription}>
                 Stuck on a complex concept? Just highlight the text and our built-in AI chatbot will provide instant clarity. Unlike generic AI, our tutor is trained specifically on this textbook&apos;s content, ensuring accurate and relevant answers every time.
               </p>
               <ul style={{fontSize: '1.1rem', marginTop: '1.5rem', listStyle: 'none', padding: 0}}>
@@ -140,7 +140,7 @@ function ChatbotFeature() {
           </div>
           <div className="col col--6 text--center">
             <div className={clsx('glass-card padding--xl', styles.chatbotGraphic)}>
-              <div style={{fontSize: '8rem', filter: 'drop-shadow(0 0 20px rgba(99, 102, 241, 0.4))'}}>🤖</div>
+              <div className={styles.chatbotEmoji}>🤖</div>
               <div className="margin-top--md" style={{fontStyle: 'italic', opacity: 0.8}}>
                 "How do actuators in the Unitree G1 compare to the Tesla Optimus?"
               </div>
